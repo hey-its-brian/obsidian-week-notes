@@ -366,8 +366,7 @@ class DatePickerModal extends Modal {
     const input = contentEl.createEl("input", { type: "date" });
     const today = new Date();
     input.value = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, "0")}-${String(today.getDate()).padStart(2, "0")}`;
-    const btn = contentEl.createEl("button", { text: "Generate" });
-    btn.style.marginLeft = "8px";
+    const btn = contentEl.createEl("button", { text: "Generate", cls: "wn-modal-btn" });
     btn.onclick = () => {
       if (!input.value) return;
       const [y, m, d] = input.value.split("-").map(Number);
@@ -392,11 +391,10 @@ class WeekNotesSettingTab extends PluginSettingTab {
     containerEl.empty();
 
     containerEl.createEl("h2", { text: "Week Notes" });
-    const tokensHelp = containerEl.createEl("p");
+    const tokensHelp = containerEl.createEl("p", { cls: "wn-help-text" });
     tokensHelp.setText(
       "Tokens: {date} {isoDate} {weekday} {weekdayShort} {week} {weekPadded} {year} {month} {day}"
     );
-    tokensHelp.style.opacity = "0.7";
 
     new Setting(containerEl)
       .setName("Week folder")
@@ -442,10 +440,7 @@ class WeekNotesSettingTab extends PluginSettingTab {
           })
       );
     }
-    const dayLabels = daysSetting.controlEl.createDiv();
-    dayLabels.style.marginLeft = "8px";
-    dayLabels.style.fontSize = "12px";
-    dayLabels.style.opacity = "0.7";
+    const dayLabels = daysSetting.controlEl.createDiv({ cls: "wn-day-labels" });
     dayLabels.setText(WEEKDAY_ORDER.join(" "));
 
     new Setting(containerEl)
@@ -549,22 +544,17 @@ class WeekNotesSettingTab extends PluginSettingTab {
     const rerender = () => {
       wrap.empty();
       list.forEach((entry, idx) => {
-        const row = wrap.createDiv();
-        row.style.display = "flex";
-        row.style.gap = "6px";
-        row.style.marginBottom = "4px";
+        const row = wrap.createDiv({ cls: "wn-fm-row" });
 
-        const keyInput = row.createEl("input", { type: "text", placeholder: "key" });
+        const keyInput = row.createEl("input", { type: "text", cls: "wn-fm-key", placeholder: "key" });
         keyInput.value = entry.key;
-        keyInput.style.flex = "1";
         keyInput.oninput = async () => {
           entry.key = keyInput.value;
           await this.plugin.saveSettings();
         };
 
-        const valInput = row.createEl("input", { type: "text", placeholder: "value (tokens allowed)" });
+        const valInput = row.createEl("input", { type: "text", cls: "wn-fm-val", placeholder: "value (tokens allowed)" });
         valInput.value = entry.value;
-        valInput.style.flex = "2";
         valInput.oninput = async () => {
           entry.value = valInput.value;
           await this.plugin.saveSettings();
@@ -578,8 +568,7 @@ class WeekNotesSettingTab extends PluginSettingTab {
         };
       });
 
-      const addBtn = wrap.createEl("button", { text: "+ Add field" });
-      addBtn.style.marginTop = "4px";
+      const addBtn = wrap.createEl("button", { text: "+ Add field", cls: "wn-fm-add" });
       addBtn.onclick = async () => {
         list.push({ key: "", value: "" });
         await this.plugin.saveSettings();
