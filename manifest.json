@@ -1,0 +1,10 @@
+{
+  "id": "week-notes",
+  "name": "Week Notes",
+  "version": "0.1.0",
+  "minAppVersion": "1.4.0",
+  "description": "Generate a weekly folder containing daily notes and a weekly roundup, from configurable templates.",
+  "author": "hey-its-brian",
+  "authorUrl": "https://github.com/hey-its-brian",
+  "isDesktopOnly": false
+}

@@ -1,0 +1,11 @@
+node_modules/
+main.js
+*.log
+.DS_Store
+.env
+.vscode/
+.idea/
+dist/
+build/
+*.tgz
+data.json
