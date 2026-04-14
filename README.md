@@ -5,7 +5,7 @@ An Obsidian plugin that generates a weekly folder containing daily notes and a w
 ## Features
 
 - **Generate a full week at once**: a folder per week containing one note per enabled weekday plus a weekly roundup.
-- **Self-healing weekly roundup**: uses Obsidian wikilinks/embeds (`![[note]]`), so renames update automatically — no Dataview required.
+- **Self-healing weekly roundup**: uses Obsidian wikilinks/embeds (`![[note]]`), so renames update automatically, no Dataview required.
 - **Configurable weekdays**: pick which days of the week get a note (e.g., weekdays only).
 - **Templates**: optionally point to a daily and weekly template file in the vault. Tokens get substituted at generation time.
 - **Custom frontmatter**: define key/value frontmatter for daily and weekly notes independently, with token support.
