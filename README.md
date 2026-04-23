@@ -1,6 +1,6 @@
 # Week Notes
 
-An Obsidian plugin that generates a weekly folder containing daily notes and a weekly roundup, from configurable templates. Replaces shell-script-based daily note workflows with a native, customizable plugin.
+An Obsidian plugin that generates a weekly folder containing daily notes and a weekly roundup, from configurable templates.
 
 ## Features
 
